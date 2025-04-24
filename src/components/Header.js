@@ -12,7 +12,7 @@ export default function Header() {
 
    return (
       <header className="w-full sticky top-0 z-50 shadow-sm">
-         <nav className="relative bg-white flex items-center justify-between px-6 py-7">
+         <nav className="relative bg-white flex items-center justify-between px-6 py-6">
             {/* Logo */}
             <Link href="/" className="flex items-center">
                <Image src="/assets/img/logo_site.png" alt="Logo" width={110} height={55} className="ms-3" />
