@@ -1,41 +1,40 @@
 "use client";
 
-import { Col, Row, Carousel } from "antd"; // Import Carousel
-import partners from "@/data/partners"; // Import the partners data
+import { Col, Row, Carousel, ConfigProvider } from "antd"; // Import ConfigProvider
+import partners from "@/data/partners";
 
 export default function PartnersCustomers() {
    // Carousel settings
    const carouselSettings = {
-      dots: false, // Hide dots navigation
-      infinite: true, // Loop infinitely
-      speed: 500, // Transition speed
-      slidesToShow: 5, // Show 5 logos by default
-      slidesToScroll: 1,
-      autoplay: true, // Enable autoplay
-      autoplaySpeed: 2000, // Change slide every 2 seconds
-      pauseOnHover: true, // Pause autoplay on hover
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      autoplay: false,
+      draggable: true,
+      arrows: true,
       responsive: [
-         // Adjust slides shown based on screen size
          {
-            breakpoint: 1200, // xl
-            settings: {
-               slidesToShow: 5
-            }
-         },
-         {
-            breakpoint: 992, // lg
+            breakpoint: 1200,
             settings: {
                slidesToShow: 4
             }
          },
          {
-            breakpoint: 768, // md
+            breakpoint: 992,
+            settings: {
+               slidesToShow: 4
+            }
+         },
+         {
+            breakpoint: 768,
             settings: {
                slidesToShow: 3
             }
          },
          {
-            breakpoint: 576, // sm/xs
+            breakpoint: 576,
             settings: {
                slidesToShow: 2
             }
@@ -43,9 +42,22 @@ export default function PartnersCustomers() {
       ]
    };
 
+   const themeConfig = {
+      components: {
+         Carousel: {
+            arrowOffset: 20,
+            arrowSize: 20,
+            dotOffset: -20,
+            dotHeight: 8,
+            dotWidth: 8,
+            dotActiveWidth: 8,
+            dotGap: 8
+         }
+      }
+   };
+
    return (
       <>
-         {/* Section background is now fixed via CSS */}
          <section className="partners-customers" style={{ marginTop: "80px" }}>
             <div className="container mx-auto max-w-[1200px]">
                <Row>
@@ -59,22 +71,22 @@ export default function PartnersCustomers() {
                      </div>
                   </Col>
                </Row>
-               {/* Replace Row with Carousel */}
                <Row>
                   <Col span={24}>
-                     {/* Check if partners data exists */}
-                     {partners && partners.length > 0 ? (
-                        <Carousel {...carouselSettings}>
-                           {partners.map((item) => (
-                              // Each item in the carousel needs a key
-                              <div key={item.key}>
-                                 <div className="partners-customers__list-icon">{item.imageSmall}</div>
-                              </div>
-                           ))}
-                        </Carousel>
-                     ) : (
-                        <p style={{ color: "white", textAlign: "center" }}>Đối tác đang được cập nhật...</p> // Fallback message
-                     )}
+                     {/* Wrap the Carousel with ConfigProvider */}
+                     <ConfigProvider theme={themeConfig}>
+                        {partners && partners.length > 0 ? (
+                           <Carousel {...carouselSettings}>
+                              {partners.map((item) => (
+                                 <div key={item.key} style={{ padding: "0 5px" }}>
+                                    <div className="partners-customers__list-icon">{item.imageSmall}</div>
+                                 </div>
+                              ))}
+                           </Carousel>
+                        ) : (
+                           <p style={{ color: "white", textAlign: "center" }}>Đối tác đang được cập nhật...</p>
+                        )}
+                     </ConfigProvider>
                   </Col>
                </Row>
             </div>

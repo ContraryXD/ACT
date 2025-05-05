@@ -489,24 +489,51 @@ h6 {
 
 /* Partners Customers Section */
 .partners-customers {
-   background: url("../assets/images/global-connections.jpg") no-repeat center center; /* Added center center */
+   background: url("../assets/images/global-connections.jpg") no-repeat center center;
    background-size: cover;
-   background-attachment: fixed; /* Make background fixed */
+   background-attachment: fixed;
    width: 100%;
+   min-height: 100vh;
    height: max-content;
-   position: relative; /* Needed for potential pseudo-elements or absolute children */
-   padding: 40px 0; /* Add some padding */
+   position: relative; /* Needed for the pseudo-element overlay */
+   padding: 60px 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   /* Add z-index to ensure pseudo-element is behind content */
+   z-index: 0;
+}
+
+/* Add the overlay using a pseudo-element */
+.partners-customers::before {
+   content: ""; /* Required for pseudo-element */
+   position: absolute; /* Position relative to .partners-customers */
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+   z-index: -1; /* Place the overlay behind the content */
+}
+
+/* Ensure the container and its content are positioned above the overlay */
+.partners-customers .container {
+   width: 100%;
+   max-width: 1200px;
+   position: relative; /* Ensure content stacking context */
+   z-index: 1; /* Place content above the overlay */
 }
 
 .partners-customers__head {
    text-align: center;
-   padding: 3rem 0;
-   color: #fff;
+   padding-bottom: 3rem;
+   color: #fff; /* Keep text white for contrast against dark overlay */
+   width: 100%;
 }
 
 .partners-customers__head h3 {
-   /* Assuming @include font-size sets a base size, adjust if needed */
-   /* font-size: 2.5rem; */ /* Example base size */
+   font-size: 3rem;
    font-weight: 700;
    margin: 0;
 }
@@ -518,23 +545,42 @@ h6 {
    margin: 15px auto;
 }
 
-/* Add some basic styling for the carousel items if needed */
+.slick-arrow {
+   color: #333333 !important;
+}
+
 .partners-customers__list-icon {
-   padding: 10px; /* Add padding around each logo */
+   padding: 0px;
    display: flex;
    justify-content: center;
    align-items: center;
-   height: 100px; /* Give the container a fixed height */
+   height: 200px;
    overflow: hidden;
+   border-radius: 10px;
+   position: relative;
+   cursor: grab;
+}
+
+/* Change cursor to grabbing when the icon container is being actively dragged */
+.partners-customers__list-icon:active {
+   cursor: grabbing;
 }
 
 .partners-customers__list-icon img {
-   max-width: 100%; /* Allow image to shrink */
-   height: auto; /* Maintain aspect ratio */
-   max-height: 100%; /* Prevent image from exceeding container height */
-   object-fit: contain; /* Fit logo within the container */
+   /* Styles for the image itself using fill={true} are mostly in the style prop */
+   max-width: 100%;
+   height: auto;
+   max-height: 100%;
+   object-fit: contain;
    border-radius: 5px;
 }
+
+/* Change cursor to grabbing when the image itself is being actively dragged (fallback) */
+.partners-customers__list-icon img:active {
+   cursor: grabbing;
+}
+
+/* Add some basic styling for the carousel items if needed */
 
 @media (max-width: 767.98px) {
    .partners-customers__head {
@@ -561,15 +607,17 @@ h6 {
 }
 
 .typical-projects__head p {
-   font-size: 20px;
-   font-weight: 600; /* Corrected from font-size: 600 */
+   font-size: 18px;
+   font-weight: 500; /* Corrected from font-size: 600 */
    margin: 0;
+   color: #333333;
 }
 
 .typical-projects__head h3 {
    /* Assuming @include font-size sets a base size, adjust if needed */
-   /* font-size: 2.5rem; */ /* Example base size */
-   padding-bottom: 3rem;
+   font-size: 3rem;
+   font-weight: 800;
+   padding-bottom: 2rem;
    margin: 0;
 }
 
