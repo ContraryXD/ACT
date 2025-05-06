@@ -1,5 +1,12 @@
-import Image from "next/image";
+import BreadCrumb from "@/components/BreadCrumb";
+import aboutImg from "@/assets/images/about_banner.jpg";
 
 export default function About() {
-  return <div className="h-screen bg-white text-black">about</div>;
+   const title = "Về chúng tôi";
+
+   return (
+      <>
+         <BreadCrumb title={title} breadcrumbImg={aboutImg} />
+      </>
+   );
 }
