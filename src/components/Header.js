@@ -1,21 +1,14 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { navigation } from "../data/menu";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [navigation, setNavigation] = useState([]);
   const pathname = usePathname();
-
-  useEffect(() => {
-    fetch("http://localhost:3000/api/navigation")
-      .then((res) => res.json())
-      .then(setNavigation)
-      .catch(() => setNavigation([]));
-  }, []);
 
   return (
     <header className="w-full sticky top-0 z-50 shadow-sm">
