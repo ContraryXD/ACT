@@ -1,3 +1,4 @@
+import { faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 
 export const navigation = [
@@ -11,19 +12,20 @@ export const navigation = [
 ];
 
 export const contact = [
-   { name: "info@vienthongact.vn", link: "mailto:info@vienthongact.vn", icon: faEnvelope },
-   { name: "(028) 62924609", link: "tel:02862924609", icon: faPhone },
+   { name: "info@vienthongact.vn", link: "", icon: faEnvelope },
+   { name: "(028) 62924609", link: "", icon: faPhone },
    {
       name: "Số 2R-2R1 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM",
-      link: "https://www.google.com/maps?q=Số+2R-2R1+Bình+Giã,+Phường+13,+Quận+Tân+Bình,+Tp.HCM",
+      link: "https://maps.app.goo.gl/sqfS347XzcRccij37",
       icon: faMapMarkerAlt
-   }
+   },
+   { name: "Công ty Cổ phần Viễn thông ACT", link: "https://www.facebook.com/ACTTelecomJSC", icon: faFacebookF }
 ];
 
 export const interested = [
-   { name: "Nhà thông minh", href: "#tuyen-dung" },
-   { name: "Các dịch vụ", href: "#dich-vu" },
-   { name: "Liên hệ", href: "#du-an" }
+   { name: "Nhà thông minh", href: "#" },
+   { name: "Các dịch vụ", href: "#" },
+   { name: "Liên hệ", href: "#" }
 ];
 
 export const carouselImages = [
