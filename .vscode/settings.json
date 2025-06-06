@@ -1,0 +1,7 @@
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Be extremely detailed in your commit messages. Include the purpose of the changes, any relevant context, and how it affects the codebase."
+    }
+  ]
+}
