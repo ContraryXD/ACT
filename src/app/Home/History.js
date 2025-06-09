@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import homeImage1 from "@/assets/images/home_2-1.jpg";
-import homeImage2 from "@/assets/images/home_2-2.png";
+import homeImage1 from "/assets/images/home_2-1.jpg";
+import homeImage2 from "/assets/images/home_2-2.png";
 import { Col, Row, Button } from "antd";
 
 export default function History() {

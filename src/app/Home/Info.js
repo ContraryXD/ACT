@@ -1,11 +1,11 @@
 import { Col, Row } from "antd";
 import Image from "next/image"; // Import the Next.js Image component
-import homeInfo1 from "@/assets/images/home-info-1.svg";
-import homeInfo2 from "@/assets/images/home-info-2.svg";
-import homeInfo3 from "@/assets/images/home-info-3.svg";
+import homeInfo1 from "/assets/images/home-info-1.svg";
+import homeInfo2 from "/assets/images/home-info-2.svg";
+import homeInfo3 from "/assets/images/home-info-3.svg";
 // Corrected the typo in the image file paths (hone -> home)
-import homeInfoLogo1 from "@/assets/images/home-logo-x.png";
-import homeInfoLogo2 from "@/assets/images/home-info-small-act.png";
+import homeInfoLogo1 from "/assets/images/home-logo-x.png";
+import homeInfoLogo2 from "/assets/images/home-info-small-act.png";
 
 export default function Info() {
    return (

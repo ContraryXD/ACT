@@ -211,14 +211,14 @@ h6 {
 }
 
 .home-info__warp {
-   background: url("../assets/images/home-info-bg.jpg") no-repeat center;
+   background: url("/assets/images/home-info-bg.jpg") no-repeat center;
    background-size: cover;
    width: 100%;
    height: 700px;
 }
 
 .home-info__warp .bg-opacity {
-   background: url("../assets/images/home-info-opacity.png") center no-repeat;
+   background: url("/assets/images/home-info-opacity.png") center no-repeat;
    width: 100%;
    height: 100%;
    top: 0;
@@ -489,7 +489,7 @@ h6 {
 
 /* Partners Customers Section */
 .partners-customers {
-   background: url("../assets/images/global-connections.jpg") no-repeat center center;
+   background: url("/assets/images/global-connections.jpg") no-repeat center center;
    background-size: cover;
    background-attachment: fixed;
    width: 100%;
