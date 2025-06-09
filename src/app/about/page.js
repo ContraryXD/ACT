@@ -2,30 +2,6 @@ import BreadCrumb from "@/components/BreadCrumb";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers, faPersonCircleCheck, faThumbsUp, faHandshake, faLightbulb, faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
-import aboutImg from "/assets/images/about_banner.jpg";
-import bannerTongQuan from "/assets/images/Banner_Tong_quan.jpg";
-import vision1 from "/assets/images/Vision_1.jpg";
-import vision2 from "/assets/images/Vision_2.jpg";
-import vision3 from "/assets/images/Vision_3.jpg";
-import vision4 from "/assets/images/Vision_4.jpg";
-import chuTich from "/assets/images/Hinh_Chu_tich.jpg";
-import sepTuanAnh from "/assets/images/Sep_Tuan_Anh.jpg";
-import sepHung from "/assets/images/Sep_Hung.jpg";
-import sepLuan from "/assets/images/Sep_Luan.jpg";
-import bangKhen1 from "/assets/images/bang-khen-1.jpg";
-import bangKhen2 from "/assets/images/bang-khen-2.jpg";
-import logoACT from "/assets/images/logo_ACT.png";
-import bgBig from "/assets/images/bg_big.jpg";
-import bg1 from "/assets/images/bg_1.png";
-import bgVision from "/assets/images/bg_vision.png";
-import statIcon1 from "/assets/images/about_stat_1.svg";
-import statIcon2 from "/assets/images/about_stat_2.svg";
-import statIcon3 from "/assets/images/about_stat_3.svg";
-import statIcon4 from "/assets/images/about_stat_4.svg";
-import statIcon5 from "/assets/images/about_stat_5.svg";
-import statIcon6 from "/assets/images/about_stat_6.svg";
-import valueIcon from "/assets/images/value_icon.svg";
-import orgChart from "/assets/images/so-do-to-chuc-cong-ty.png";
 
 export default function About() {
   const title = "Về chúng tôi";
@@ -90,59 +66,58 @@ export default function About() {
   ];
   const visionMission = [
     {
-      image: vision1,
+      image: "/assets/images/Vision_1.jpg",
       number: "1",
       description: "Trở thành doanh nghiệp cung cấp dịch vụ giải pháp tích hợp, vận hành khai thác và cho thuê hạ tầng số hàng đầu Việt Nam, gồm: vận hành khai thác hạ tầng mạng lưới như trạm BTS, mạng cáp quang truyền dẫn.",
     },
     {
-      image: vision2,
+      image: "/assets/images/Vision_2.jpg",
       number: "2",
       description: "Chúng tôi không ngừng cải tiến quy trình công việc; đào tạo, bồi dưỡng để nâng cao kiến thức và kỹ năng chuyên nghiệp cho đội ngũ nhân viên. Từ đó giúp tối ưu giá thành, nâng cao chất lượng hạ tầng mạng lưới.",
     },
     {
-      image: vision3,
+      image: "/assets/images/Vision_3.jpg",
       number: "3",
       description: "Trở thành doanh nghiệp hàng đầu trong lĩnh vực hợp tác đầu tư hạ tầng dự án viễn thông – công nghệ thông tin trong các khu dân cư, toà nhà cao tầng với chất lượng tốt nhất.",
     },
     {
-      image: vision4,
+      image: "/assets/images/Vision_4.jpg",
       number: "4",
       description: "Hợp tác với các nhà mạng viễn thông, các đơn vị cung cấp giải pháp CNTT tốt nhất Việt Nam để cùng nhau xây dựng chuỗi giá trị các sản phẩm và dịch vụ viễn thông trong kỷ nguyên số.",
     },
   ];
   const strengthPoints = [
     {
-      icon: statIcon1,
+      icon: "/assets/images/about_stat_1.svg",
       description: "Đội ngũ kỹ sư, kỹ thuật viên đông đảo với trên 1.000 người được đào tạo chính qui",
     },
     {
-      icon: statIcon2,
+      icon: "/assets/images/about_stat_2.svg",
       description: "Đội ngũ quản lý có kinh nghiệm và thâm niên trong nghề trên 10 năm",
     },
     {
-      icon: statIcon3,
+      icon: "/assets/images/about_stat_3.svg",
       description: "Địa bàn hoạt động rộng, gồm 01 Chi nhánh tại Hà Nội và 12 Trung tâm kỹ thuật khu vực tại Tp. HCM",
     },
     {
-      icon: statIcon4,
+      icon: "/assets/images/about_stat_4.svg",
       description: "Tình hình tài chính mạnh, khả năng kiểm soát dòng tiền tốt",
     },
     {
-      icon: statIcon5,
+      icon: "/assets/images/about_stat_5.svg",
       description: "Bộ máy được tổ chức bài bản, kiểm soát theo quy trình quy định trên hệ thống quản trị hiện đại",
     },
     {
-      icon: statIcon6,
+      icon: "/assets/images/about_stat_6.svg",
       description: "Nhiều kinh nghiệm thực hiện các dự án có tính quy mô lớn, yêu cầu chuyên nghiệp cao",
     },
   ];
-
   const leaders = [
     {
       id: "chairman",
       name: "Trần Ngọc Thiều",
       position: "Chủ tịch Hội đồng Quản trị",
-      image: chuTich,
+      image: "/assets/images/Hinh_Chu_tich.jpg",
       quote: "Dù việc lớn hay nhỏ đều phải làm cho thật chuyên nghiệp và chất lượng.",
       isChairman: true,
     },
@@ -150,37 +125,37 @@ export default function About() {
       id: "ceo",
       name: "Phạm Tuấn Anh",
       position: "Tổng Giám đốc",
-      image: sepTuanAnh,
+      image: "/assets/images/Sep_Tuan_Anh.jpg",
       isChairman: false,
     },
     {
       id: "deputy-technical",
       name: "Đặng Trần Hùng",
       position: "Phó Tổng Giám đốc\nPhụ trách Kỹ thuật",
-      image: sepHung,
+      image: "/assets/images/Sep_Hung.jpg",
       isChairman: false,
     },
     {
       id: "deputy-operations",
       name: "Nguyễn Đức Luân",
       position: "Phó Tổng Giám đốc\nPhụ trách Vận hành khai thác",
-      image: sepLuan,
+      image: "/assets/images/Sep_Luan.jpg",
       isChairman: false,
     },
   ];
   return (
     <>
       {" "}
-      <BreadCrumb title={title} breadcrumbImg={aboutImg} />
+      <BreadCrumb title={title} breadcrumbImg="/assets/images/about_banner.jpg" />
       {/* New Company Overview Section with Offset Layout */}
       <section className="relative bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
         {" "}
         <div className="max-w-7xl mx-auto">
           <div className="relative min-h-[600px] md:min-h-[550px] lg:min-h-[650px]">
-            {/* Background Image with Logo - Top Left */}
+            {/* Background Image with Logo - Top Left */}{" "}
             <div className="absolute top-0 left-0 w-full md:w-3/5 lg:w-3/5 h-[350px] md:h-[380px] lg:h-[420px] z-10">
               <div className="relative w-full h-full rounded-lg overflow-hidden shadow-lg">
-                <Image src={bannerTongQuan} alt="Company overview banner" fill className="object-cover" priority />
+                <Image src="/assets/images/Banner_Tong_quan.jpg" alt="Company overview banner" fill className="object-cover" priority />
               </div>{" "}
             </div>
             {/* Content Box - Overlaying Bottom Right Corner */}
@@ -212,9 +187,9 @@ export default function About() {
         {" "}
         {/* Background Images */}
         <div className="absolute inset-0 z-0">
-          <Image src={bgBig} alt="Background" fill className="object-cover" />
+          <Image src="/assets/images/bg_big.jpg" alt="Background" fill className="object-cover" />
           <div className="absolute inset-0 flex items-center justify-center">
-            <Image src={bg1} alt="Background overlay" className="object-contain" />
+            <Image src="/assets/images/bg_1.png" alt="Background overlay" className="object-contain" />
           </div>
         </div>
         {/* Content */}
@@ -246,7 +221,7 @@ export default function About() {
                 <div
                   className="relative w-80 h-35 flex items-center justify-center text-white flex-shrink-0"
                   style={{
-                    backgroundImage: `url(${valueIcon.src})`,
+                    backgroundImage: `url(/assets/images/value_icon.svg)`,
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",
@@ -271,11 +246,11 @@ export default function About() {
       </section>{" "}
       {/* Vision & Mission Section */}
       <section className="relative py-16 min-h-screen">
-        {/* Fixed Background Image */}
+        {/* Fixed Background Image */}{" "}
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${bgVision.src})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/assets/images/bg_vision.png)`,
             zIndex: -1,
           }}
         ></div>
@@ -341,10 +316,10 @@ export default function About() {
             {/* Two Column Layout: Organizational Chart + Leadership */}
             <div className="grid grid-cols-2 lg:grid-cols-3 gap-12 items-start">
               {" "}
-              {/* Left Column - Organizational Chart */}
+              {/* Left Column - Organizational Chart */}{" "}
               <div className="flex justify-center">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <Image src={orgChart} alt="Sơ đồ tổ chức công ty" width={400} height={400} className="w-full max-w-md rounded-xl object-contain" style={{ width: "400px", height: "400px" }} />
+                  <Image src="/assets/images/so-do-to-chuc-cong-ty.png" alt="Sơ đồ tổ chức công ty" width={400} height={400} className="w-full max-w-md rounded-xl object-contain" style={{ width: "400px", height: "400px" }} />
                 </div>
               </div>
               {/* Right Column - Leadership in Blue Box */}
@@ -412,14 +387,13 @@ export default function About() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-6xl font-extrabold font-serif text-black mb-4">Chứng nhận và thành tích</h2>
-          </div>
-
+          </div>{" "}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
             <div className="bg-white p-4 rounded-lg shadow-md">
-              <Image src={bangKhen1} alt="Bằng khen 1" width={400} height={300} className="w-full h-full object-cover rounded-lg" />
+              <Image src="/assets/images/bang-khen-1.jpg" alt="Bằng khen 1" width={400} height={300} className="w-full h-full object-cover rounded-lg" />
             </div>
             <div className="bg-white p-4 rounded-lg shadow-md">
-              <Image src={bangKhen2} alt="Bằng khen 2" width={400} height={300} className="w-full h-full object-cover rounded-lg" />
+              <Image src="/assets/images/bang-khen-2.jpg" alt="Bằng khen 2" width={400} height={300} className="w-full h-full object-cover rounded-lg" />
             </div>
           </div>
         </div>
