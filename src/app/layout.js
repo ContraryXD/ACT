@@ -1,11 +1,7 @@
-import "@/lib/fontawesome";
 import "./globals.css";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from "@fortawesome/fontawesome-svg-core";
-config.autoAddCss = false;
 
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/Layout/Header";
+import Footer from "@/components/Layout/Footer";
 
 export default function RootLayout({ children }) {
   return (

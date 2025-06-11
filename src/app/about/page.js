@@ -1,7 +1,7 @@
-import BreadCrumb from "@/components/BreadCrumb";
+import BreadCrumb from "@/components/Common/BreadCrumb";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers, faPersonCircleCheck, faThumbsUp, faHandshake, faLightbulb, faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
+import { TeamOutlined, UserOutlined, LikeOutlined, ShakeOutlined, BulbOutlined, HeartOutlined } from "@ant-design/icons";
+import { Row, Col, Card, Space } from "antd";
 
 export default function About() {
   const title = "Về chúng tôi";
@@ -15,7 +15,7 @@ export default function About() {
   };
   const coreValues = [
     {
-      icon: faUsers,
+      icon: TeamOutlined,
       title: "KHÁCH HÀNG LÀ TRUNG TÂM",
       description: "Đặt nhu cầu, mong muốn và trải nghiệm của khách hàng lên hàng đầu.",
       fullDescription: "Luôn thực hiện mọi nỗ lực để hiểu và đáp ứng kỳ vọng của khách hàng. Phản hồi của khách hàng là nền tảng của sự cải thiện và cải tiến liên tục. Tập trung nâng cao các giá trị và các dịch vụ trải nghiệm của khách hàng.",
@@ -23,7 +23,7 @@ export default function About() {
       isRightAligned: false,
     },
     {
-      icon: faPersonCircleCheck,
+      icon: UserOutlined,
       title: "TRUNG THỰC & CHÍNH TRỰC",
       description: "Trung thực trong giao tiếp và hành động không chỉ giúp xây dựng lòng tin mà còn là nền tảng cho sự phát triển.",
       fullDescription: "Luôn minh bạch trong giao tiếp và hành động để xây dựng niềm tin; Luôn thẳng thắn, nói thật ngay cả khi khó khăn hay khi có sai phạm; Đánh giá kết quả, thưởng phạt công bằng dựa trên những tiêu chí rõ ràng; Cam kết tuân thủ nguyên tắc về liêm chính, chống hối lộ và tham nhũng trong doanh nghiệp; Hành xử một cách có trách nhiệm dựa trên chuẩn mực đạo đức nghề nghiệp.",
@@ -31,7 +31,7 @@ export default function About() {
       isRightAligned: true,
     },
     {
-      icon: faThumbsUp,
+      icon: LikeOutlined,
       title: "CHUYÊN NGHIỆP",
       description: "Cách thể hiện sự tận tâm, chủ động, trách nhiệm và tôn trọng đối với công việc, đồng nghiệp và khách hàng.",
       fullDescription: "Kỷ luật & tự chủ không chỉ là tuân thủ Nguyên tắc, quy trình, quy định mà còn là sự tự giác, chủ động trong công việc với tinh thần trách nhiệm cao và luôn thực hiện theo những cam kết và giữ lời hứa (dù lớn hay nhỏ); Làm việc dựa trên kết quả và hiệu quả; Chuẩn hóa quy trình và thực hành xuất sắc.",
@@ -39,7 +39,7 @@ export default function About() {
       isRightAligned: false,
     },
     {
-      icon: faHandshake,
+      icon: ShakeOutlined,
       title: "HỢP TÁC & ĐOÀN KẾT",
       description: "Sự gắn kết, hợp tác và hỗ trợ lẫn nhau giữa các thành viên để đạt được mục tiêu chung.",
       fullDescription:
@@ -48,7 +48,7 @@ export default function About() {
       isRightAligned: true,
     },
     {
-      icon: faLightbulb,
+      icon: BulbOutlined,
       title: "HỌC HỎI & SÁNG TẠO",
       description: "Học hỏi & thích nghi, cải tiến & sáng tạo trong công việc để phát triển & nâng cao chất lượng, hiệu suất trong công việc cũng như sức mạnh cạnh tranh của DN.",
       fullDescription: "Luôn chủ động học hỏi để phát triển bản thân và chia sẻ lẫn nhau kiến thức mới, cách làm mới; Tò mò thông qua đặt câu hỏi đúng và không tự mãn những gì đang có là điểm khởi đầu của sự tiến bộ; Không ngừng tìm kiếm ý tưởng mới, tìm tòi cải tiến phương pháp làm việc để gia tăng hiệu suất DN; Đổi mới sáng tạo là động lực chính để tăng tốc và phát triển DN bền vững.",
@@ -56,7 +56,7 @@ export default function About() {
       isRightAligned: false,
     },
     {
-      icon: faHandHoldingHeart,
+      icon: HeartOutlined,
       title: "TRÁCH NHIỆM XÃ HỘI",
       description: "Cam kết mang lại những tác động tích cực cho cộng đồng và xã hội.",
       fullDescription: "Luôn dành một phần lợi nhuận cho công tác xã hội, thiện nguyện để giúp đỡ các hoàn cảnh khó khăn, chung tay xây dựng xã hội ngày càng tốt đẹp hơn; Luôn khuyến khích mọi thành viên ACT tham gia các hoạt động xã hội thiện nguyện, các chiến dịch cộng đồng; Cam kết tham gia và thúc đẩy một cách có trách nhiệm các hoạt động nội bộ và kinh doanh theo định hướng bảo vệ môi trường, chống biến đổi khí hậu và phát triển bền vững.",
@@ -191,19 +191,23 @@ export default function About() {
           <div className="absolute inset-0 flex items-center justify-center">
             <Image src="/assets/images/bg_1.png" alt="Background overlay" className="object-contain" />
           </div>
-        </div>
+        </div>{" "}
         {/* Content */}
         <div className="relative z-10 container mx-auto p-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+          <Row gutter={[20, 20]} justify="center">
             {strengthPoints.map((strength, index) => (
-              <div key={index} className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl p-12 flex flex-col items-center text-center space-y-6 hover:bg-white/95 transition-all duration-300 transform hover:scale-105">
-                <div className="bg-blue-900 text-white rounded-full p-6 w-20 h-20 flex items-center justify-center shadow-lg">
-                  <Image src={strength.icon} alt={`Strength ${index + 1}`} width={32} height={32} className="filter brightness-0 invert" />
-                </div>
-                <p className="text-gray-700 leading-relaxed text-lg font-medium">{strength.description}</p>
-              </div>
+              <Col key={index} xs={24} sm={12} lg={8}>
+                <Card className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl hover:bg-white/95 transition-all duration-300 transform hover:scale-105" style={{ height: "100%" }} bodyStyle={{ padding: "48px", textAlign: "center" }}>
+                  <Space direction="vertical" size="large" style={{ width: "100%" }}>
+                    <div className="bg-blue-900 text-white rounded-full p-6 w-20 h-20 flex items-center justify-center shadow-lg mx-auto">
+                      <Image src={strength.icon} alt={`Strength ${index + 1}`} width={32} height={32} className="filter brightness-0 invert" />
+                    </div>
+                    <p className="text-gray-700 leading-relaxed text-lg font-medium">{strength.description}</p>
+                  </Space>
+                </Card>
+              </Col>
             ))}
-          </div>
+          </Row>
         </div>
       </section>{" "}
       {/* Core Values Section */}
@@ -214,23 +218,24 @@ export default function About() {
             <h2 className="text-5xl font-bold text-black mb-6">Giá trị cốt lõi</h2>
           </div>{" "}
           {/* Core Values with Alternating Layout */}
-          <div className="space-y-8 max-w-7xl mx-auto">
+          <Space direction="vertical" size="large" style={{ width: "100%", maxWidth: "1400px", margin: "0 auto" }}>
             {coreValues.map((value, index) => (
-              <div key={index} className={value.isRightAligned ? "flex flex-col lg:flex-row-reverse items-center gap-8" : "flex flex-col lg:flex-row items-center gap-8"}>
-                {" "}
-                <div
-                  className="relative w-80 h-35 flex items-center justify-center text-white flex-shrink-0"
-                  style={{
-                    backgroundImage: `url(/assets/images/value_icon.svg)`,
-                    backgroundSize: "contain",
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <FontAwesomeIcon icon={value.icon} className="text-6xl" />
-                </div>
-                <div>
-                  <p className={`text-gray-800 leading-relaxed text-justify`}>
+              <Row key={index} gutter={[32, 32]} align="middle" style={{ flexDirection: value.isRightAligned ? "row-reverse" : "row" }}>
+                <Col xs={24} lg={8}>
+                  <div
+                    className="relative w-80 h-35 flex items-center justify-center text-white flex-shrink-0 mx-auto"
+                    style={{
+                      backgroundImage: `url(/assets/images/value_icon.svg)`,
+                      backgroundSize: "contain",
+                      backgroundRepeat: "no-repeat",
+                      backgroundPosition: "center",
+                    }}
+                  >
+                    <value.icon style={{ fontSize: "4rem", color: "#1890ff" }} />
+                  </div>
+                </Col>
+                <Col xs={24} lg={16}>
+                  <p className="text-gray-800 leading-relaxed text-justify">
                     <b>{value.title}:</b> <i>{value.description}</i>{" "}
                     <span
                       dangerouslySetInnerHTML={{
@@ -238,10 +243,10 @@ export default function About() {
                       }}
                     />
                   </p>
-                </div>
-              </div>
+                </Col>
+              </Row>
             ))}
-          </div>
+          </Space>
         </div>
       </section>{" "}
       {/* Vision & Mission Section */}
@@ -263,45 +268,51 @@ export default function About() {
             </div>
           </div>{" "}
           {/* 2x2 Grid Layout with offset second column */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <Row gutter={[32, 32]} style={{ maxWidth: "1200px", margin: "0 auto" }}>
             {/* First Column Items (1, 3) */}
-            <div className="space-y-8">
-              {visionMission
-                .filter((_, index) => index % 2 === 0)
-                .map((item, index) => (
-                  <div key={item.number} className="space-y-4 bg-white rounded">
-                    <div className="p-4">
-                      <div className="flex justify-center  mb-4">
-                        <div className="bg-blue-600  text-center text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl ">{item.number}</div>
+            <Col xs={24} lg={12}>
+              <Space direction="vertical" size="large" style={{ width: "100%" }}>
+                {visionMission
+                  .filter((_, index) => index % 2 === 0)
+                  .map((item, index) => (
+                    <Card key={item.number} className="bg-white rounded">
+                      <div className="p-4">
+                        <div className="flex justify-center mb-4">
+                          <div className="bg-blue-600 text-center text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl">{item.number}</div>
+                        </div>
+                        <Image src={item.image} alt={`Vision ${item.number}`} width={400} height={300} className="w-full rounded-lg object-cover" />
                       </div>
-                      <Image src={item.image} alt={`Vision ${item.number}`} width={400} height={300} className="w-full rounded-lg object-cover" />
-                    </div>
-                    <div className="p-6">
-                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-            </div>
+                      <div className="p-6">
+                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                      </div>
+                    </Card>
+                  ))}
+              </Space>
+            </Col>
 
             {/* Second Column Items (2, 4) - Offset lower */}
-            <div className="space-y-8 lg:mt-30">
-              {visionMission
-                .filter((_, index) => index % 2 === 1)
-                .map((item, index) => (
-                  <div key={item.number} className="space-y-4 bg-white rounded">
-                    <div className=" p-4 ">
-                      <div className="flex justify-center mb-4">
-                        <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl ">{item.number}</div>
-                      </div>
-                      <Image src={item.image} alt={`Vision ${item.number}`} width={400} height={300} className="w-full rounded-lg object-cover" />
-                    </div>
-                    <div className=" p-6 ">
-                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
+            <Col xs={24} lg={12} style={{ marginTop: "lg" }}>
+              <div style={{ marginTop: "120px" }}>
+                <Space direction="vertical" size="large" style={{ width: "100%" }}>
+                  {visionMission
+                    .filter((_, index) => index % 2 === 1)
+                    .map((item, index) => (
+                      <Card key={item.number} className="bg-white rounded">
+                        <div className="p-4">
+                          <div className="flex justify-center mb-4">
+                            <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl">{item.number}</div>
+                          </div>
+                          <Image src={item.image} alt={`Vision ${item.number}`} width={400} height={300} className="w-full rounded-lg object-cover" />
+                        </div>
+                        <div className="p-6">
+                          <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                        </div>
+                      </Card>
+                    ))}
+                </Space>
+              </div>
+            </Col>
+          </Row>
         </div>
       </section>{" "}
       {/* Leadership Section */}
@@ -313,53 +324,54 @@ export default function About() {
           </div>
 
           <div className="max-w-7xl mx-auto">
+            {" "}
             {/* Two Column Layout: Organizational Chart + Leadership */}
-            <div className="grid grid-cols-2 lg:grid-cols-3 gap-12 items-start">
-              {" "}
-              {/* Left Column - Organizational Chart */}{" "}
-              <div className="flex justify-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <Image src="/assets/images/so-do-to-chuc-cong-ty.png" alt="Sơ đồ tổ chức công ty" width={400} height={400} className="w-full max-w-md rounded-xl object-contain" style={{ width: "400px", height: "400px" }} />
+            <Row gutter={[48, 32]} align="top">
+              {/* Left Column - Organizational Chart */}
+              <Col xs={24} lg={8}>
+                <div className="flex justify-center">
+                  <Card className="bg-white/10 backdrop-blur-sm" bodyStyle={{ padding: "32px" }}>
+                    <Image src="/assets/images/so-do-to-chuc-cong-ty.png" alt="Sơ đồ tổ chức công ty" width={400} height={400} className="w-full max-w-md rounded-xl object-contain" style={{ width: "400px", height: "400px" }} />
+                  </Card>
                 </div>
-              </div>
+              </Col>
+
               {/* Right Column - Leadership in Blue Box */}
-              <div className="col-span-2 bg-blue-900 backdrop-blur-sm p-8 shadow-2xl" style={{ borderRadius: "2rem 0 2rem 0" }}>
-                <div className="p-0 m-0">
+              <Col xs={24} lg={16}>
+                <Card className="bg-blue-900 backdrop-blur-sm shadow-2xl" style={{ borderRadius: "2rem 0 2rem 0" }} bodyStyle={{ padding: "32px" }}>
                   {/* Chairman Section - Full Width */}
                   {leaders
                     .filter((leader) => leader.isChairman)
                     .map((chairman) => (
                       <div key={chairman.id} className="pb-12 w-full">
-                        <div className="flex justify-around items-center">
-                          <div className="w-1/2">
+                        <Row gutter={[32, 16]} align="middle">
+                          <Col xs={24} md={12}>
                             <div className="text-3xl font-bold text-white mb-4">{chairman.name}</div>
-                            <div className="text-center text-white text-lg" style={{ maxWidth: "90%" }}>
-                              {chairman.position}
-                            </div>
-                          </div>
-                          <div className="w-1/2 relative">
+                            <div className="text-center text-white text-lg">{chairman.position}</div>
+                          </Col>
+                          <Col xs={24} md={12}>
                             <div className="relative">
                               {/* White thin border box offset to top-left */}
                               <div className="absolute -top-3 -left-3 border-2 border-white shadow-lg z-0 max-w-xs mx-auto" style={{ width: "320px", height: "177px" }}></div>
                               <Image src={chairman.image} alt={chairman.name} width={350} height={200} className="relative w-full max-w-xs mx-auto shadow-xl object-cover z-10" style={{ width: "350px" }} />
                             </div>
                             <div className="text-white text-sm italic mt-4 text-center">&ldquo;{chairman.quote}&rdquo;</div>
-                          </div>
-                        </div>
+                          </Col>
+                        </Row>
                       </div>
                     ))}
 
                   {/* Other Leaders - Three Columns */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <Row gutter={[24, 24]}>
                     {leaders
                       .filter((leader) => !leader.isChairman)
                       .map((leader) => (
-                        <div key={leader.id} className="pb-4">
-                          <div className="flex flex-col items-center">
+                        <Col key={leader.id} xs={24} md={8}>
+                          <div className="flex flex-col items-center pb-4">
                             <div className="mb-4">
                               <Image src={leader.image} alt={leader.name} width={250} height={290} className="w-full h-48 object-cover shadow-lg" style={{ width: "250px", height: "290px" }} />
                             </div>
-                            <div className="text-white text-lg font-bold mt-3">{leader.name}</div>
+                            <div className="text-white text-lg font-bold mt-3 text-center">{leader.name}</div>
                             <div className="text-center text-white text-sm">
                               {leader.position.split("\n").map((line, index) => (
                                 <span key={index}>
@@ -369,12 +381,12 @@ export default function About() {
                               ))}
                             </div>
                           </div>
-                        </div>
+                        </Col>
                       ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </Row>
+                </Card>
+              </Col>
+            </Row>
           </div>
         </div>
 
@@ -388,14 +400,18 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-6xl font-extrabold font-serif text-black mb-4">Chứng nhận và thành tích</h2>
           </div>{" "}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            <div className="bg-white p-4 rounded-lg shadow-md">
-              <Image src="/assets/images/bang-khen-1.jpg" alt="Bằng khen 1" width={400} height={300} className="w-full h-full object-cover rounded-lg" />
-            </div>
-            <div className="bg-white p-4 rounded-lg shadow-md">
-              <Image src="/assets/images/bang-khen-2.jpg" alt="Bằng khen 2" width={400} height={300} className="w-full h-full object-cover rounded-lg" />
-            </div>
-          </div>
+          <Row gutter={[32, 32]} justify="center" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+            <Col xs={24} md={12}>
+              <Card bodyStyle={{ padding: "16px" }}>
+                <Image src="/assets/images/bang-khen-1.jpg" alt="Bằng khen 1" width={400} height={300} className="w-full h-full object-cover rounded-lg" />
+              </Card>
+            </Col>
+            <Col xs={24} md={12}>
+              <Card bodyStyle={{ padding: "16px" }}>
+                <Image src="/assets/images/bang-khen-2.jpg" alt="Bằng khen 2" width={400} height={300} className="w-full h-full object-cover rounded-lg" />
+              </Card>
+            </Col>
+          </Row>
         </div>
       </section>
     </>

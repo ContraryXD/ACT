@@ -1,21 +1,21 @@
 "use client";
 
-import CarouselBanner from "./CarouselBanner";
+import CarouselBanner from "../../components/Home/CarouselBanner";
+import PartnersCustomers from "../../components/Home/PartnersCustomers";
+import ProvidingService from "../../components/Home/ProvidingService";
+import TypicalProject from "../../components/Home/TypicalProject";
 import History from "./History";
 import Info from "./Info";
-import PartnersCustomers from "./PartnersCustomers";
-import ProvidingService from "./ProvidingService";
-import TypicalProject from "./TypicalProject";
 
 export default function Home() {
-   return (
-      <div>
-         <CarouselBanner />
-         <History />
-         <Info />
-         <ProvidingService />
-         <PartnersCustomers />
-         <TypicalProject />
-      </div>
-   );
+  return (
+    <div>
+      <CarouselBanner />
+      <History />
+      <Info />
+      <ProvidingService />
+      <PartnersCustomers />
+      <TypicalProject />
+    </div>
+  );
 }

@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import homeImage1 from "/assets/images/home_2-1.jpg";
-import homeImage2 from "/assets/images/home_2-2.png";
 import { Col, Row, Button } from "antd";
 
 export default function History() {
@@ -13,8 +11,8 @@ export default function History() {
           <Row gutter={[15, 0]}>
             <Col xl={12}>
               <div className="history__photo">
-                <Image src={homeImage1} alt="homeImage1" width={500} height={500} />
-                <Image src={homeImage2} alt="homeImage2" width={500} height={500} />
+                <Image src="/assets/images/home_2-1.jpg" alt="homeImage1" width={500} height={500} />
+                <Image src="/assets/images/home_2-2.png" alt="homeImage2" width={500} height={500} />
               </div>
             </Col>
             <Col xl={12}>
