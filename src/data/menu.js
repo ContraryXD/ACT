@@ -1,30 +1,34 @@
 import { MailOutlined, PhoneOutlined, EnvironmentOutlined, FacebookOutlined } from "@ant-design/icons";
 
 export const navigation = [
-  { name: "Trang chủ", href: "/" },
-  { name: "Giới thiệu", href: "/About" },
-  { name: "Dịch vụ", href: "#" }, // TODO: Create /Services/page.js
-  { name: "Dự án", href: "#" }, // TODO: Create projects page
-  { name: "Bản tin", href: "#" }, // TODO: Create /News/page.js
-  { name: "Tuyển dụng", href: "#" }, // TODO: Create /Recuitments/page.js
-  { name: "Liên hệ", href: "#" }, // TODO: Create contact page
+   { name: "Trang chủ", href: "/" },
+   { name: "Giới thiệu", href: "/About" },
+   { name: "Dịch vụ", href: "/Services" },
+   { name: "Dự án", href: "/Projects" },
+   { name: "Bản tin", href: "#" },
+   { name: "Tuyển dụng", href: "#" },
+   { name: "Liên hệ", href: "#" }
 ];
 
 export const contact = [
-  { name: "info@vienthongact.vn", link: "", icon: MailOutlined },
-  { name: "(028) 62924609", link: "", icon: PhoneOutlined },
-  {
-    name: "Số 2R-2R1 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM",
-    link: "https://maps.app.goo.gl/sqfS347XzcRccij37",
-    icon: EnvironmentOutlined,
-  },
-  { name: "Công ty Cổ phần Viễn thông ACT", link: "https://www.facebook.com/ACTTelecomJSC", icon: FacebookOutlined },
+   { name: "info@vienthongact.vn", link: "", icon: MailOutlined },
+   { name: "(028) 62924609", link: "", icon: PhoneOutlined },
+   {
+      name: "Số 2R-2R1 Bình Giã, Phường 13, Quận Tân Bình, Tp.HCM",
+      link: "https://maps.app.goo.gl/sqfS347XzcRccij37",
+      icon: EnvironmentOutlined
+   },
+   { name: "Công ty Cổ phần Viễn thông ACT", link: "https://www.facebook.com/ACTTelecomJSC", icon: FacebookOutlined }
 ];
 
 export const interested = [
-  { name: "Nhà thông minh", href: "#" },
-  { name: "Các dịch vụ", href: "#" },
-  { name: "Liên hệ", href: "#" },
+   { name: "Nhà thông minh", href: "#" },
+   { name: "Các dịch vụ", href: "#" },
+   { name: "Liên hệ", href: "#" }
 ];
 
-export const carouselImages = ["/assets/images/home_bannertop_1.jpg", "/assets/images/home_bannertop_2.jpg", "/assets/images/home_bannertop_3.jpg"];
+export const carouselImages = [
+   "/assets/images/home_bannertop_1.jpg",
+   "/assets/images/home_bannertop_2.jpg",
+   "/assets/images/home_bannertop_3.jpg"
+];
