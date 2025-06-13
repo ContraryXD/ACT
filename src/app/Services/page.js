@@ -3,7 +3,7 @@
 import { useState } from "react";
 import BreadCrumb from "@/components/Common/BreadCrumb";
 import Image from "next/image";
-import { Row, Col, Card, Typography, Space, Form, Input, Button, message } from "antd";
+import { Row, Col, Card, Typography, Space, Form, Input, Button, App } from "antd";
 import { MailOutlined, PhoneOutlined, UserOutlined, MessageOutlined } from "@ant-design/icons";
 import ServiceItems from "@/data/services";
 import { contactsAPI } from "@/services/services";
@@ -15,6 +15,7 @@ export default function Services() {
    const title = "Dịch vụ";
    const [form] = Form.useForm();
    const [submitting, setSubmitting] = useState(false);
+   const { message } = App.useApp();
 
    const handleSubmit = async (values) => {
       try {

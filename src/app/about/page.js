@@ -262,10 +262,11 @@ export default function About() {
                <Row gutter={[20, 20]} justify="center">
                   {strengthPoints.map((strength, index) => (
                      <Col key={index} xs={24} sm={12} lg={8}>
+                        {" "}
                         <Card
                            className="bg-white/90 backdrop-blur-sm rounded-lg shadow-xl hover:bg-white/95 transition-all duration-300 transform hover:scale-105"
                            style={{ height: "100%" }}
-                           bodyStyle={{ padding: "48px", textAlign: "center" }}>
+                           styles={{ body: { padding: "48px", textAlign: "center" } }}>
                            <Space direction="vertical" size="large" style={{ width: "100%" }}>
                               <div className="bg-blue-900 text-white rounded-full p-6 w-20 h-20 flex items-center justify-center shadow-lg mx-auto">
                                  <Image
@@ -430,8 +431,9 @@ export default function About() {
                   <Row gutter={[48, 32]} align="top">
                      {/* Left Column - Organizational Chart */}
                      <Col xs={24} lg={8}>
+                        {" "}
                         <div className="flex justify-center">
-                           <Card className="bg-white/10 backdrop-blur-sm" bodyStyle={{ padding: "32px" }}>
+                           <Card className="bg-white/10 backdrop-blur-sm" styles={{ body: { padding: "32px" } }}>
                               <Image
                                  src="/assets/images/so-do-to-chuc-cong-ty.png"
                                  alt="Sơ đồ tổ chức công ty"
@@ -451,7 +453,7 @@ export default function About() {
                               borderRadius: "2rem 0 2rem 0",
                               backgroundColor: "#1e3a8a" // blue-900
                            }}
-                           bodyStyle={{ padding: "32px" }}>
+                           styles={{ body: { padding: "32px" } }}>
                            {/* Chairman Section - Full Width */}
                            {leaders
                               .filter((leader) => leader.isChairman)
@@ -535,7 +537,7 @@ export default function About() {
                </div>{" "}
                <Row gutter={[32, 32]} justify="center" style={{ maxWidth: "1200px", margin: "0 auto" }}>
                   <Col xs={24} md={12}>
-                     <Card bodyStyle={{ padding: "16px" }}>
+                     <Card styles={{ body: { padding: "16px" } }}>
                         <Image
                            src="/assets/images/bang-khen-1.jpg"
                            alt="Bằng khen 1"
@@ -543,10 +545,10 @@ export default function About() {
                            height={300}
                            className="w-full h-full object-cover rounded-lg"
                         />
-                     </Card>
+                     </Card>{" "}
                   </Col>
                   <Col xs={24} md={12}>
-                     <Card bodyStyle={{ padding: "16px" }}>
+                     <Card styles={{ body: { padding: "16px" } }}>
                         <Image
                            src="/assets/images/bang-khen-2.jpg"
                            alt="Bằng khen 2"
