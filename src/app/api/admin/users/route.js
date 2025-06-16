@@ -27,31 +27,18 @@ export async function POST(request) {
     if (!supabaseAdmin) {
       return NextResponse.json({ error: "Admin access not configured" }, { status: 500 });
     }
-
     const userData = await request.json();
-    console.log("Creating user with data:", { ...userData, password: userData.password ? "[PROVIDED]" : "[NOT PROVIDED]" });
 
     // Hash the password if provided
     if (userData.password) {
-      console.log("Hashing password...");
       try {
         const saltRounds = 10;
-        const originalPassword = userData.password;
         userData.password = await bcrypt.hash(userData.password, saltRounds);
-        console.log("Password hashed successfully:", {
-          original: originalPassword,
-          hashed: userData.password.substring(0, 20) + "...",
-          isHashed: userData.password.startsWith("$2"),
-        });
       } catch (hashError) {
         console.error("Error hashing password:", hashError);
         return NextResponse.json({ error: "Failed to hash password" }, { status: 500 });
       }
-    } else {
-      console.log("No password provided to hash");
     }
-
-    console.log("Inserting user into database...");
     const { data, error } = await supabaseAdmin.from("users").insert([userData]).select().single();
 
     if (error) {
@@ -59,7 +46,6 @@ export async function POST(request) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    console.log("User created successfully, password in DB:", data.password ? data.password.substring(0, 20) + "..." : "NO PASSWORD");
     // Remove password from response for security
     const { password: _, ...userWithoutPassword } = data;
 
