@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Table, Card, Tag, Button, Space, Modal, Typography, message, Drawer, Form, Input, Select, Switch, DatePicker, InputNumber } from "antd";
 import { EyeOutlined, EditOutlined, DeleteOutlined, PlusOutlined, FileTextOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 import { newsAPI } from "@/services/services";
+import ImageUpload from "@/components/Admin/ImageUpload";
 import dayjs from "dayjs";
 
 const { Title, Text, Paragraph } = Typography;
@@ -318,20 +319,18 @@ export default function NewsPage() {
           <Form.Item name="title" label="Tiêu đề" rules={[{ required: true, message: "Vui lòng nhập tiêu đề" }]}>
             <Input placeholder="Nhập tiêu đề bài viết" />
           </Form.Item>
-
           <Form.Item name="excerpt" label="Tóm tắt">
             <TextArea rows={3} placeholder="Nhập tóm tắt bài viết" />
           </Form.Item>
-
           <Form.Item name="content" label="Nội dung">
             <TextArea rows={10} placeholder="Nhập nội dung bài viết" />
-          </Form.Item>
-
-          <div className="grid grid-cols-2 gap-4">
-            <Form.Item name="thumbnail" label="Ảnh đại diện (URL)">
-              <Input placeholder="Nhập URL ảnh đại diện" />
+          </Form.Item>{" "}
+          <div className="grid grid-cols-1 gap-4 mb-4">
+            <Form.Item name="thumbnail" label="Ảnh đại diện">
+              <ImageUpload />
             </Form.Item>
-
+          </div>
+          <div className="grid grid-cols-2 gap-4">
             <Form.Item name="tags" label="Tags">
               <Select mode="tags" placeholder="Nhập tags (có thể thêm nhiều)" style={{ width: "100%" }} />
             </Form.Item>
@@ -344,7 +343,6 @@ export default function NewsPage() {
               <Switch checkedChildren="Xuất bản" unCheckedChildren="Nháp" />
             </Form.Item>
           </div>
-
           <div className="flex justify-end space-x-2 mt-6">
             <Button onClick={() => setModalVisible(false)}>Hủy</Button>
             <Button type="primary" htmlType="submit">

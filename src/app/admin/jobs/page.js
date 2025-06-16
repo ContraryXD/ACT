@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Table, Card, Tag, Button, Space, Modal, Typography, message, Drawer, Form, Input, Select, DatePicker, Switch } from "antd";
 import { EyeOutlined, EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import { jobsAPI } from "@/services/services";
+import ImageUpload from "@/components/Admin/ImageUpload";
 import dayjs from "dayjs";
 
 const { Title, Text, Paragraph } = Typography;
@@ -356,24 +357,22 @@ export default function JobsPage() {
             <Form.Item name="deadline" label="Hạn nộp hồ sơ">
               <DatePicker style={{ width: "100%" }} />
             </Form.Item>
-          </div>
-
+          </div>{" "}
           <Form.Item name="is_active" label="Trạng thái tuyển dụng" valuePropName="checked" initialValue={true}>
             <Switch checkedChildren="Đang tuyển" unCheckedChildren="Đã đóng" />
           </Form.Item>
-
+          <Form.Item name="image" label="Ảnh minh họa">
+            <ImageUpload />
+          </Form.Item>
           <Form.Item name="description" label="Mô tả công việc">
             <TextArea rows={4} placeholder="Nhập mô tả công việc chi tiết" />
           </Form.Item>
-
           <Form.Item name="requirements" label="Yêu cầu ứng viên">
             <TextArea rows={4} placeholder="Nhập yêu cầu đối với ứng viên" />
           </Form.Item>
-
           <Form.Item name="benefits" label="Quyền lợi">
             <TextArea rows={4} placeholder="Nhập quyền lợi của ứng viên" />
           </Form.Item>
-
           <div className="flex justify-end space-x-2 mt-6">
             <Button onClick={() => setModalVisible(false)}>Hủy</Button>
             <Button type="primary" htmlType="submit">

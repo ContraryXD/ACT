@@ -12,18 +12,15 @@ export async function POST(request) {
     // Validate required fields
     if (!username || !password) {
       return NextResponse.json({ error: "Username and password are required" }, { status: 400 });
-    }
-
-    // Get user from database
+    } // Get user from database
     const { data: user, error } = await supabaseAdmin.from("users").select("*").eq("username", username).eq("is_active", true).single();
 
     if (error || !user) {
       return NextResponse.json({ error: "Invalid username or password" }, { status: 401 });
     }
 
-    // For now, we'll use a simple password check (you should hash passwords in production)
-    // This is a temporary solution - in production, use bcrypt.compare()
-    const isValidPassword = password === "admin123"; // Replace with actual password checking
+    // Compare password with hashed password in database
+    const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
       return NextResponse.json({ error: "Invalid username or password" }, { status: 401 });
