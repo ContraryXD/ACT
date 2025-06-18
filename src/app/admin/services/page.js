@@ -19,21 +19,26 @@ export default function ServicesManagement() {
   useEffect(() => {
     loadServices();
   }, []);
-
   const loadServices = async () => {
     try {
       setLoading(true);
-      const { data, error } = await adminAPI.services.getAll();
+      const response = await fetch("/api/admin/services", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-      if (error) {
-        message.error("Không thể tải danh sách dịch vụ");
-        return;
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to fetch services");
       }
 
+      const data = await response.json();
       setServices(data || []);
     } catch (error) {
       console.error("Error loading services:", error);
-      message.error("Có lỗi xảy ra khi tải danh sách dịch vụ");
+      message.error("Không thể tải danh sách dịch vụ");
     } finally {
       setLoading(false);
     }
