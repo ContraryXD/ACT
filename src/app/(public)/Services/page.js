@@ -93,7 +93,7 @@ export default function Services() {
 
   return (
     <>
-      <BreadCrumb title={title} breadcrumbImg="/assets/images/services_banner.jpg" />
+      <BreadCrumb title={title} breadcrumbImg="/assets/images/bg-breadcrumb.jpg" />
       {/* Services Introduction Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">

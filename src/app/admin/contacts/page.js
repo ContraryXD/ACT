@@ -4,11 +4,6 @@ import { Table, Card, Tag, Button, Space, Modal, Typography, message, Drawer } f
 import { EyeOutlined, DeleteOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons";
 import { contactsAPI } from "@/services/services";
 
-export const metadata = {
-  title: "Quản lý liên hệ | ACT Admin",
-  description: "Quản lý thông tin liên hệ từ khách hàng ACT Telecommunications.",
-};
-
 const { Title, Text, Paragraph } = Typography;
 
 export default function ContactsPage() {

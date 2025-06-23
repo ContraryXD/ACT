@@ -125,7 +125,7 @@ export default function Projects() {
 
   return (
     <>
-      <BreadCrumb title={title} breadcrumbImg="/assets/images/bg_breadcrumbs_project.jpg" />
+      <BreadCrumb title={title} breadcrumbImg="/assets/images/bg-breadcrumb.jpg" />
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">

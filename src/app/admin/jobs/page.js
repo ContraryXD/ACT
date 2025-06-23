@@ -6,11 +6,6 @@ import { jobsAPI } from "@/services/services";
 import ImageUpload from "@/components/Admin/ImageUpload";
 import dayjs from "dayjs";
 
-export const metadata = {
-  title: "Quản lý tuyển dụng | ACT Admin",
-  description: "Quản lý thông tin tuyển dụng và việc làm tại ACT Telecommunications.",
-};
-
 const { Title, Text, Paragraph } = Typography;
 const { TextArea } = Input;
 const { Option } = Select;

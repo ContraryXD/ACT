@@ -1,15 +1,16 @@
+"use client";
+import { useEffect } from "react";
 import BreadCrumb from "@/components/Common/BreadCrumb";
 import Image from "next/image";
 import { TeamOutlined, UserOutlined, LikeOutlined, ShakeOutlined, BulbOutlined, HeartOutlined } from "@ant-design/icons";
 import { Row, Col, Card, Space } from "antd";
 
-export const metadata = {
-  title: "Về chúng tôi | ACT Telecommunications",
-  description: "Tìm hiểu về Công ty Cổ phần Viễn thông ACT - Lịch sử, sứ mệnh, tầm nhìn và đội ngũ lãnh đạo của chúng tôi.",
-};
-
 export default function About() {
   const title = "Về chúng tôi";
+
+  useEffect(() => {
+    document.title = "Về chúng tôi | ACT Telecommunications";
+  }, []);
 
   const highlightText = (text, highlights) => {
     let highlightedText = text;
@@ -151,7 +152,7 @@ export default function About() {
   return (
     <>
       {" "}
-      <BreadCrumb title={title} breadcrumbImg="/assets/images/about_banner.jpg" />
+      <BreadCrumb title={title} breadcrumbImg="/assets/images/bg-breadcrumb.jpg" />
       {/* New Company Overview Section with Offset Layout */}
       <section className="relative bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
         {" "}
