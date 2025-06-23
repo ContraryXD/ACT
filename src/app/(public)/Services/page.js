@@ -145,8 +145,9 @@ export default function Services() {
                       <Col xs={24} md={8} className={`${isEven ? "md:order-2" : "md:order-1"}`}>
                         <div className="h-full min-h-[200px] md:min-h-[250px] relative overflow-hidden">
                           <div className="absolute inset-0 transform transition-transform duration-500 hover:scale-105">
-                            {service.image_url ? (
-                              <Image src={service.image_url} alt={service.title} fill className="object-cover" />
+                            {" "}
+                            {service.image ? (
+                              <Image src={service.image} alt={service.title} fill className="object-cover" />
                             ) : (
                               <div className="bg-gray-200 h-full flex items-center justify-center">
                                 <span className="text-gray-500">Không có hình ảnh</span>
