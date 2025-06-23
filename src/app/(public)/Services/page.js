@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BreadCrumb from "@/components/Common/BreadCrumb";
 import Image from "next/image";
-import { Row, Col, Card, Typography, Space, Form, Input, Button, App } from "antd";
+import { Row, Col, Card, Typography, Space, Form, Input, Button, App, Spin } from "antd";
 import { MailOutlined, PhoneOutlined, UserOutlined, MessageOutlined } from "@ant-design/icons";
-import ServiceItems from "@/data/services";
+import { servicesAPI } from "@/services/services";
 
 const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
@@ -14,7 +14,32 @@ export default function Services() {
   const title = "Dịch vụ";
   const [form] = Form.useForm();
   const [submitting, setSubmitting] = useState(false);
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const { message } = App.useApp();
+
+  useEffect(() => {
+    loadServices();
+  }, []);
+
+  const loadServices = async () => {
+    try {
+      setLoading(true);
+      const { data, error } = await servicesAPI.getAll();
+
+      if (error) {
+        setError(error);
+        return;
+      }
+
+      setServices(data || []);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   const handleSubmit = async (values) => {
     try {
       setSubmitting(true);
@@ -74,41 +99,65 @@ export default function Services() {
             </Title>
           </div>
         </div>
-      </section>
+      </section>{" "}
       {/* Services Grid Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6 space-y-16">
-          {" "}
-          {ServiceItems.map((service, index) => {
-            const isEven = index % 2 === 0;
+          {loading ? (
+            <div className="text-center py-12">
+              <Spin size="large" />
+              <p className="mt-4 text-gray-600">Đang tải dịch vụ...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-red-600 mb-4">Lỗi: {error}</p>
+              <Button onClick={loadServices} type="primary">
+                Thử lại
+              </Button>
+            </div>
+          ) : services.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-600">Không có dịch vụ nào để hiển thị.</p>
+            </div>
+          ) : (
+            services.map((service, index) => {
+              const isEven = index % 2 === 0;
 
-            return (
-              <div key={service.key} className="">
-                <Card className="shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300" styles={{ body: { padding: 30 } }}>
-                  <Row className="min-h-[250px]" gutter={0}>
-                    {/* Content Column - 2/3 width */}
-                    <Col xs={24} md={16} className={`flex items-center ${isEven ? "md:order-1" : "md:order-2"}`}>
-                      <div className="p-6 md:p-8 h-full flex flex-col justify-center">
-                        <Title level={2} className="text-blue-900 font-bold mb-4 text-xl md:text-2xl">
-                          {service.title}
-                        </Title>
-                        <Paragraph className="text-gray-700 text-base leading-relaxed">{service.content}</Paragraph>
-                      </div>
-                    </Col>
-                    {/* Image Column - 1/3 width */}
-                    <Col xs={24} md={8} className={`${isEven ? "md:order-2" : "md:order-1"}`}>
-                      <div className="h-full min-h-[200px] md:min-h-[250px] relative overflow-hidden">
-                        {" "}
-                        <div className="absolute inset-0 transform transition-transform duration-500 hover:scale-105">{service.icon}</div>
-                      </div>
-                    </Col>{" "}
-                  </Row>
-                </Card>
-              </div>
-            );
-          })}
+              return (
+                <div key={service.id} className="">
+                  <Card className="shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300" styles={{ body: { padding: 30 } }}>
+                    <Row className="min-h-[250px]" gutter={0}>
+                      {/* Content Column - 2/3 width */}
+                      <Col xs={24} md={16} className={`flex items-center ${isEven ? "md:order-1" : "md:order-2"}`}>
+                        <div className="p-6 md:p-8 h-full flex flex-col justify-center">
+                          <Title level={2} className="text-blue-900 font-bold mb-4 text-xl md:text-2xl">
+                            {service.title}
+                          </Title>
+                          <Paragraph className="text-gray-700 text-base leading-relaxed">{service.description}</Paragraph>
+                        </div>
+                      </Col>
+                      {/* Image Column - 1/3 width */}
+                      <Col xs={24} md={8} className={`${isEven ? "md:order-2" : "md:order-1"}`}>
+                        <div className="h-full min-h-[200px] md:min-h-[250px] relative overflow-hidden">
+                          <div className="absolute inset-0 transform transition-transform duration-500 hover:scale-105">
+                            {service.image_url ? (
+                              <Image src={service.image_url} alt={service.title} fill className="object-cover" />
+                            ) : (
+                              <div className="bg-gray-200 h-full flex items-center justify-center">
+                                <span className="text-gray-500">Không có hình ảnh</span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Card>
+                </div>
+              );
+            })
+          )}
         </div>
-      </section>{" "}
+      </section>
       {/* Contact Form Section */}
       <section className="py-16 contact-form-section">
         <div className="container mx-auto px-6">
