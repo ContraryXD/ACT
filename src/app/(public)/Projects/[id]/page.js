@@ -82,7 +82,7 @@ export default function ProjectDetail() {
   if (loading) {
     return (
       <>
-        <BreadCrumb title="Chi tiết dự án" breadcrumbImg="/assets/images/bg-breadcrumb.jpg" />
+        <BreadCrumb title="Chi tiết dự án" breadcrumbImg="/assets/images/bg_breadcrumbs_project.jpg" />
         <div className="container mx-auto px-6 py-16">
           <div className="text-center">
             <Spin size="large" />
@@ -95,7 +95,7 @@ export default function ProjectDetail() {
   if (error) {
     return (
       <>
-        <BreadCrumb title="Chi tiết dự án" breadcrumbImg="/assets/images/bg-breadcrumb.jpg" />
+        <BreadCrumb title="Chi tiết dự án" breadcrumbImg="/assets/images/bg_breadcrumbs_project.jpg" />
         <div className="container mx-auto px-6 py-16">
           <Alert
             message="Lỗi"
@@ -122,7 +122,7 @@ export default function ProjectDetail() {
   if (!project) {
     return (
       <>
-        <BreadCrumb title="Chi tiết dự án" breadcrumbImg="/assets/images/bg-breadcrumb.jpg" />
+        <BreadCrumb title="Chi tiết dự án" breadcrumbImg="/assets/images/bg_breadcrumbs_project.jpg" />
         <div className="container mx-auto px-6 py-16">
           <div className="text-center">
             <p className="text-gray-600 mb-4">Không tìm thấy dự án</p>
@@ -135,7 +135,7 @@ export default function ProjectDetail() {
   const statusInfo = getStatusInfo(project.status);
   return (
     <>
-      <BreadCrumb title={project.name} breadcrumbImg="/assets/images/bg-breadcrumb.jpg" />
+      <BreadCrumb title={project.name} breadcrumbImg="/assets/images/bg_breadcrumbs_project.jpg" />
 
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">

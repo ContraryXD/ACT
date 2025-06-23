@@ -3,38 +3,47 @@
 ## Successfully Cleaned Up
 
 ### 1. `mysql2` - REMOVED ❌
+
 **Reason**: The project uses Supabase (PostgreSQL) as the database, not MySQL. All database operations are handled through `@supabase/supabase-js`.
 
 ### 2. `dotenv` - REMOVED ❌
+
 **Reason**: Next.js has built-in support for environment variables through `.env.local` files. No explicit `dotenv` package is needed.
 
 ### 3. `hash-passwords` script - REMOVED ❌
+
 **Reason**: The script references a non-existent file `scripts/hash-existing-passwords.js`. This script doesn't exist in the project.
 
 ### 4. Static data file `src/data/services.js` - REMOVED ❌
+
 **Reason**: Static services data is no longer needed since the application now fetches services dynamically from the API (`servicesAPI.getAll()`). The Services page has been updated to use the database-driven approach instead of static data.
 
 ### 5. Metadata exports from client components - FIXED ✅
+
 **Issue**: Several client components had `export const metadata` which is not allowed in Next.js App Router.
 **Fix**: Removed metadata exports from client components and replaced with `useEffect` to set `document.title`.
-**Files affected**: 
+**Files affected**:
+
 - `src/app/admin/contacts/page.js`
-- `src/app/admin/jobs/page.js` 
+- `src/app/admin/jobs/page.js`
 - `src/app/(public)/About/page.js`
 
 ## Project Status ✅
 
 ### All Pages Have Dynamic Data
+
 - ✅ Services page now fetches data from API instead of static file
 - ✅ All other pages already use API data (news, projects, contacts, etc.)
 - ✅ No remaining static data dependencies
 
 ### All Pages Have Proper Titles
+
 - ✅ Root layout has metadata export with default title and template
 - ✅ All client component pages set `document.title` in `useEffect`
 - ✅ Dynamic pages (with [id], [slug]) set title after data loads
 
 ### Clean Dependencies
+
 - ✅ No unused dependencies in package.json
 - ✅ No unused scripts in package.json
 - ✅ No orphaned static data files

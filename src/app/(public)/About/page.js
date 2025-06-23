@@ -152,7 +152,7 @@ export default function About() {
   return (
     <>
       {" "}
-      <BreadCrumb title={title} breadcrumbImg="/assets/images/bg-breadcrumb.jpg" />
+      <BreadCrumb title={title} breadcrumbImg="/assets/images/about_banner.jpg" />
       {/* New Company Overview Section with Offset Layout */}
       <section className="relative bg-gray-100 py-16 px-6 md:px-12 lg:px-20">
         {" "}
