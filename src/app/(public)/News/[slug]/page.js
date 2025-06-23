@@ -31,6 +31,8 @@ export default function NewsDetailPage() {
         }
 
         setNews(data);
+        // Set dynamic page title
+        document.title = `${data.title} | Tin tức | ACT Telecommunications`;
 
         // Load related news
         try {

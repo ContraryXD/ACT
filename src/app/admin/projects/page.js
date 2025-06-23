@@ -11,6 +11,10 @@ const { Option } = Select;
 
 export default function ProjectsPage() {
   const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    document.title = "Quản lý dự án | ACT Admin";
+  }, []);
   const [loading, setLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState(null);
   const [drawerVisible, setDrawerVisible] = useState(false);

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Input, Button, Card, Row, Col, Typography, Space, message, Divider } from "antd";
 import { MailOutlined, PhoneOutlined, EnvironmentOutlined, ClockCircleOutlined, SendOutlined } from "@ant-design/icons";
 import { contactsAPI } from "@/services/services";
@@ -11,6 +11,10 @@ const { TextArea } = Input;
 export default function ContactPage() {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    document.title = "Liên hệ | ACT Telecommunications";
+  }, []);
 
   const breadcrumbItems = [{ title: "Trang chủ", href: "/" }, { title: "Liên hệ" }];
 

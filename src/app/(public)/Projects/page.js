@@ -13,6 +13,10 @@ const { TabPane } = Tabs;
 export default function Projects() {
   const title = "Dự án";
   const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    document.title = "Dự án | ACT Telecommunications";
+  }, []);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Card, Form, Input, Button, Typography, message, App } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
@@ -8,6 +8,10 @@ const { Title, Text } = Typography;
 
 export default function AdminLogin() {
   const [form] = Form.useForm();
+
+  useEffect(() => {
+    document.title = "Đăng nhập | ACT Admin";
+  }, []);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { message: messageApi } = App.useApp();

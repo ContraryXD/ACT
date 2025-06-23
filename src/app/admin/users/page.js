@@ -10,6 +10,10 @@ const { Option } = Select;
 
 export default function UsersPage() {
   const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    document.title = "Quản lý người dùng | ACT Admin";
+  }, []);
   const [loading, setLoading] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
   const [drawerVisible, setDrawerVisible] = useState(false);

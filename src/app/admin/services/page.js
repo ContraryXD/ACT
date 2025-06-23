@@ -9,6 +9,10 @@ const { TextArea } = Input;
 
 export default function ServicesManagement() {
   const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    document.title = "Quản lý dịch vụ | ACT Admin";
+  }, []);
   const [loading, setLoading] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
   const [drawerVisible, setDrawerVisible] = useState(false);

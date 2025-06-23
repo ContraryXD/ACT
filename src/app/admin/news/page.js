@@ -12,6 +12,10 @@ const { Option } = Select;
 
 export default function NewsPage() {
   const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    document.title = "Quản lý tin tức | ACT Admin";
+  }, []);
   const [loading, setLoading] = useState(true);
   const [selectedNews, setSelectedNews] = useState(null);
   const [drawerVisible, setDrawerVisible] = useState(false);

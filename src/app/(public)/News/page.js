@@ -13,6 +13,10 @@ const { Option } = Select;
 
 export default function NewsPage() {
   const [news, setNews] = useState([]);
+
+  useEffect(() => {
+    document.title = "Tin tức | ACT Telecommunications";
+  }, []);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");

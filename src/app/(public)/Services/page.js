@@ -20,6 +20,11 @@ export default function Services() {
   const { message } = App.useApp();
 
   useEffect(() => {
+    // Set page title
+    document.title = "Dịch vụ | ACT Telecommunications";
+  }, []);
+
+  useEffect(() => {
     loadServices();
   }, []);
 
