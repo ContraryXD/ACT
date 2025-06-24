@@ -166,25 +166,34 @@ export default function NewsDetailPage() {
 
               {news.summary && <Paragraph className="text-lg text-gray-600 font-medium leading-relaxed">{news.summary}</Paragraph>}
             </div>
-
             <Divider />
-
             {/* Content */}
             <div className="prose prose-lg max-w-none">
               <div dangerouslySetInnerHTML={{ __html: news.content }} className="text-gray-700 leading-relaxed" />
-            </div>
-
+            </div>{" "}
             {news.tags && (
               <>
                 <Divider />
                 <div>
                   <Text strong>Tags: </Text>
                   <Space wrap>
-                    {news.tags.split(",").map((tag, index) => (
-                      <Tag key={index} color="geekblue">
-                        {tag.trim()}
-                      </Tag>
-                    ))}
+                    {(() => {
+                      // Handle different tag formats
+                      if (Array.isArray(news.tags)) {
+                        return news.tags.map((tag, index) => (
+                          <Tag key={index} color="geekblue">
+                            {tag}
+                          </Tag>
+                        ));
+                      } else if (typeof news.tags === "string") {
+                        return news.tags.split(",").map((tag, index) => (
+                          <Tag key={index} color="geekblue">
+                            {tag.trim()}
+                          </Tag>
+                        ));
+                      }
+                      return null;
+                    })()}
                   </Space>
                 </div>
               </>
